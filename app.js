@@ -14,6 +14,30 @@ var app = express();
 var mongoose = require('mongoose');
 //link to globsl vars file
 var config = require('./config/globalVars');
+//passprt config
+var session = require('express-session');
+var passport = require('passport');
+var localStrategy = require('passport-local').Strategy;
+var flash = require('connect-flash');
+app.use(flash());
+
+//enable sessions
+app.use(session({
+  secret:config.secret,
+  resave:true,
+  saveUninitialized : false
+  // maxAge: 30 if you want to logout unattended pageit  to
+ }));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// link to account model which we build
+var Account = require('./models/account');
+passport.use(Account.createStrategy());
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
+
 //connecting to database
 mongoose.connect(config.db);
 

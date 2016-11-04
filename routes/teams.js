@@ -103,6 +103,7 @@ router.post('/:id',isLoggedIn, function(req, res, next){
       }else{
         res.redirect('/teams');
       }
+      });
 });
 //checks if user is loggedin
 
