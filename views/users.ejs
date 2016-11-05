@@ -2,7 +2,7 @@
   <h1>Users</h1>
   <ul>
   <%for(var i= 0;i <users.length; i++) {%>
-    <li><%= users[i]%></li>
+    <li><%= users[i].username%></li>
     <% } %>
   </ul>
 <%-include partials/footer.ejs %>

@@ -15,7 +15,8 @@ router.get('/',isLoggedIn, function(req, res, next) {
           }else{
             res.render('teams', {
                                   title: 'Playoff Teams',
-                                  teams: teams
+                                  teams: teams,
+                                   user: req.user
                                 }
                       );
           }

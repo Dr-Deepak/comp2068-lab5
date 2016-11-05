@@ -3,5 +3,5 @@
 //module.exports = { db: 'mongodb://localhost/comp2068' };
 /** for mlab */
 module.exports = { db: 'mongodb://deepak:2481053@ds032319.mlab.com:32319/comp2068',
-secret: 'I love Radhika' };
+                        secret: 'I love coding' };
 //

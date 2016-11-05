@@ -23,13 +23,13 @@ router.get('/register', function(req, res, next) {
 // new Register request
 router.post('/register',function(req, res, next) {
   //create a new acccount
-  Account.register( new Account({username: req.body.username }) ,req.body.password, function(err,account){
+  Account.register( new Account({username: req.body.username }) ,req.body.password, function(err, account){
         if(err){
           console.log(err);
           res.redirect('/error')
         }
         else{
-          res.redirect('/login',{user:req.user});
+          res.redirect('/login');
         }
       });
     });
@@ -47,8 +47,7 @@ router.get('/login', function(req, res, next) {
                           title: 'Login',
                  faliureMessage: '',
                            user: req.user
-                        }
-              );
+    });
   }
 });
 
